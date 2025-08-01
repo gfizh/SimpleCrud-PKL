@@ -1,0 +1,168 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #e2e8f0, #f1f5f9);
+    color: #1e293b;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== CONTAINERS ===== */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+}
+
+/* Judul Section */
+.container h2 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+/* ===== FORMS ===== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    background-color: #fff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    padding: 12px 24px;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+form.inline-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* ===== POSTS ===== */
+.post-card {
+    background-color: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    background-color: #e0f2fe;
+    transform: scale(1.01);
+}
+
+.post-card h3 {
+    font-size: 1.2rem;
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #64748b;
+    background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+    border-top: 1px solid #e2e8f0;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
+}
+
+/* ===== MOBILE FRIENDLY ===== */
+.fullscreen-center {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 17px;
+    }
+
+    .container {
+        padding: 20px;
+        margin: 15px;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    form.inline-form {
+        display: block;
+        margin: 6px 0;
+    }
+
+    .post-card h3 {
+        font-size: 1.1rem;
+    }
+}
