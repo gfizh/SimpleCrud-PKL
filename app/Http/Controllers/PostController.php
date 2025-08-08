@@ -11,10 +11,16 @@ class PostController extends Controller
 {
 
    public function deletePost(Post $post){
-    if (auth()->user()->id === $post->user_id) {
-        $post->delete();
+
+    $user = auth()->user();
+
+    // Hanya boleh hapus kalau: pemilik post ATAU admin
+    if ($user->id !== $post->user_id && !$user->isAdmin()) {
+        abort(403, 'Akses ditolak: bukan pemilik atau admin.');
     }
-    return redirect('/');
+
+    $post->delete();
+    return redirect('/')->with('message', 'Post dihapus.');
 }
 
     public function showEditScreen(Post $post){

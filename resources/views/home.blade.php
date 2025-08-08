@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <link rel="stylesheet" href="/css/style.css">
+      <script>
+    window.addEventListener('beforeunload', function () {
+        navigator.sendBeacon('/logout', new FormData());
+    });
+</script>
 </head>
 <body>
 
@@ -29,9 +34,13 @@
     <div class="container">
         <h2>Semua Post</h2>
         @foreach($posts as $post)
-        <div class="post-card">
-            <h3>{{ $post->title }}</h3>
-            <p>{{ $post->body }}</p>
+    <div class="post-card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <p><strong>Posted by:</strong> {{ $post->user->name }}</p>
+
+        <h3>{{ $post->title }}</h3>
+        <p>{{ $post->body }}</p>
+
+        @if(auth()->check() && (auth()->id() === $post->user_id || auth()->user()->isAdmin()))
             <form action="/edit-post/{{ $post->id }}" class="inline-form" method="GET">
                 <button>Edit</button>
             </form>
@@ -40,8 +49,10 @@
                 @method('DELETE')
                 <button onclick="return confirm('Yakin hapus post ini?')">Delete</button>
             </form>
-        </div>
-        @endforeach
+        @endif
+    </div>
+@endforeach
+
     </div>
 @else
    <div class="fullscreen-center">
