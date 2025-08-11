@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <link rel="stylesheet" href="/css/style.css">
-      <script>
-    window.addEventListener('beforeunload', function () {
-        navigator.sendBeacon('/logout', new FormData());
-    });
-</script>
 </head>
 <body>
 
