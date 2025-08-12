@@ -17,6 +17,7 @@ class UserController extends Controller
         'loginpassword' => 'required',
     ]);
 
+
     if (Auth::attempt([
         'email' => $incomingFields['loginname'], // login pakai email
         'password' => $incomingFields['loginpassword']

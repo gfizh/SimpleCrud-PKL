@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Edit Post</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
 
-<div class="bg-wrapper">
-<div class="container">
-    <h2>Edit Post</h2>
-    <form action="/edit-post/{{ $post->id }}" method="POST">
-        @csrf
-        @method('PUT')
-        <input type="text" name="title" value="{{ $post->title }}" required>
-        <textarea name="body" rows="6" required>{{ $post->body }}</textarea>
-        <button type="submit">Simpan Perubahan</button>
-    </form>
+
+<body>
+    <div class="bg-wrapper"></div>
+    <div class="container">
+<h2>Login</h2>
+<form method="POST" action="/login">
+    @csrf
+    <input type="email" name="loginname" placeholder="Email" required>
+    <br>
+    <input type="password" name="loginpassword" placeholder="Password" required>
+    <br>
+    <button type="submit">Login</button>
+</form>
+<a href="{{ route('register') }}">Belum punya akun? Register</a>
 </div>
 <script>
     const wrapper = document.querySelector('.bg-wrapper');
@@ -45,7 +47,6 @@
     }
 </script>
 
-</div>
 
 </body>
 </html>
