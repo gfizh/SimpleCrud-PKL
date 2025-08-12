@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homepage</title>
+    <title>HomePage</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -30,7 +30,12 @@
         <h2>Semua Post</h2>
         @foreach($posts as $post)
     <div class="post-card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <p><strong>Posted by:</strong> {{ $post->user->name }}</p>
+        <p>
+    <img src="https://ui-avatars.com/api/?name={{ urlencode($post->user->name) }}&background=random&color=fff&size=32" 
+         alt="{{ $post->user->name }}" 
+         style="border-radius: 50%; vertical-align: middle; margin-right: 8px;">
+    <strong>{{ $post->user->name }}</strong>
+</p>
 
         <h3>{{ $post->title }}</h3>
         <p>{{ $post->body }}</p>
