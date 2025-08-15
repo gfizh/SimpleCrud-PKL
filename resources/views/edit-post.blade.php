@@ -7,7 +7,10 @@
 </head>
 <body>
 
-<div class="bg-wrapper">
+<!-- Background -->
+<div class="bg-wrapper"></div>
+
+<!-- Konten -->
 <div class="container">
     <h2>Edit Post</h2>
     <form action="/edit-post/{{ $post->id }}" method="POST">
@@ -18,11 +21,12 @@
         <button type="submit">Simpan Perubahan</button>
     </form>
 </div>
+
 <script>
     const wrapper = document.querySelector('.bg-wrapper');
 
     // Bintang jatuh
-    const starCount = 35; // Lebih sedikit biar soft
+    const starCount = 35;
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.classList.add('star');
@@ -33,7 +37,7 @@
     }
 
     // Partikel merah
-    const particleCount = 50; // Lebih sedikit biar tidak ramai
+    const particleCount = 50;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
@@ -44,8 +48,6 @@
         wrapper.appendChild(particle);
     }
 </script>
-
-</div>
 
 </body>
 </html>
