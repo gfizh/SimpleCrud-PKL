@@ -1,0 +1,79 @@
+/* Background gradasi */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #121420, #1c1e26);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Wrapper transparan */
+.bg-wrapper {
+    position: fixed;
+    inset: 0;
+    background: url('/images/bg-pattern.png') repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Kontainer */
+.container {
+    background: #1f2230;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    text-align: center;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00cfff;
+}
+
+/* Form */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-form input,
+.edit-form textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: #2a2e3d;
+    color: #fff;
+    transition: 0.2s ease;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+    background: #33384d;
+    box-shadow: 0 0 0 2px #00cfff;
+}
+
+/* Tombol */
+.edit-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #00cfff;
+    color: #121420;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.edit-form button:hover {
+    background: #00a9cc;
+    transform: translateY(-2px);
+}

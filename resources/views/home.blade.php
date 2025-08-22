@@ -2,21 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HomePage</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Ahmad Forum</title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
 
 <div class="bg-wrapper"></div>  
 
+<header>
+    <div class="navbar">
+        <h1 class="logo">Ahmad Forum</h1>
+        <nav>
+            @auth
+                <form method="POST" action="/logout" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-btn">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="nav-btn">Login</a>
+                <a href="{{ route('register') }}" class="nav-btn">Register</a>
+            @endauth
+        </nav>
+    </div>
+</header>
+
 <main>
     @auth
         <div class="container">
             <h2>Selamat datang, {{ auth()->user()->name }}</h2>
-            <form method="POST" action="/logout">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
         </div>
 
         <div class="container">
@@ -57,7 +70,8 @@
         </div>
     @else
         <div class="container fullscreen-center">
-            <h2 class="judul">Anda belum login</h2>
+            <h2 class="judul">Selamat datang di Ahmad Forum</h2>
+            <p>Silakan login atau register untuk mulai bergabung 👋</p>
             <button class="nav-btn" onclick="window.location.href='{{ route('login') }}'">Login</button>
             <button class="nav-btn" onclick="window.location.href='{{ route('register') }}'">Register</button>
         </div>
@@ -67,33 +81,6 @@
 <footer>
     &copy; {{ date('Y') }} Ahmad Hafizh, powered by Laravel 🚀
 </footer>
-
-<script>
-    const wrapper = document.querySelector('.bg-wrapper');
-
-    // Bintang jatuh
-    const starCount = 35;
-    for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.left = Math.random() * 100 + 'vw';
-        star.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        star.style.animationDelay = (Math.random() * 5) + 's';
-        wrapper.appendChild(star);
-    }
-
-    // Partikel merah
-    const particleCount = 50;
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.top = Math.random() * 100 + 'vh';
-        particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
-        particle.style.animationDelay = (Math.random() * 5) + 's';
-        wrapper.appendChild(particle);
-    }
-</script>
 
 </body>
 </html>
